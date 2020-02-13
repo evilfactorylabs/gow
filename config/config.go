@@ -57,7 +57,7 @@ func GetConfig() *Config {
 		},
 		DB: &dbConfig{
 			Dialect: "sqlite3",
-			Path:    "./gow.db",
+			Path:    "./data/gow.db",
 		},
 		Token: token,
 	}
