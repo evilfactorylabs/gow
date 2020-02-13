@@ -21,7 +21,7 @@ track link distribution without tracking any personal data.
 
 ## Development
 
-Make sure you have Go & SQLite installed, if not, you know what's next.
+Make sure you have Go & SQLite installed (and it's dependencies), if not, you know what's next.
 
 - Build the application: `make`
 - Run the server: `GOW_TOKEN=<token> ./gow`
@@ -35,11 +35,16 @@ run `npm run dev` in `web` directory.
 - `HOST` - Helpful when you are using reverse proxy, default: `localhost`
 - `PORT` - Helpful in case you don't use container technology, default: `3030`
 
-For now (v0.1.0), authorization is done in Layer 7 (Load Balancer), but I will fix this.
+For now (v0.2.0), authorization is done in Layer 7 (Load Balancer), but I will fix this.
 
 ## Deployment
 
 There are 2 way to run this program in Production
+
+### Quick way
+
+- Pull the image: `docker pull evilfactorylabs/gow:<version>`
+- Run it: `docker run -d -e TOKEN="<token>" -v ~/data:/app/data evilfactorylabs/gow:<version>`
 
 ### As Binary
 
@@ -47,10 +52,10 @@ There are 2 way to run this program in Production
 - Build code: `make`
 - Run program: `GOW_TOKEN=<token> ./gow`
 
-### As Docker Container (TODO)
+### As Docker Container
 
 - Build image: `docker build -t . evilfactorylabs/gow:latest`
-- Run image: `docker run -d evilfactorylabs/gow:latest`
+- Run image: `docker run -d -e TOKEN="<token>" -v ~/data:/app/data evilfactorylabs/gow:<version>`
 
 ## Roadmap
 
