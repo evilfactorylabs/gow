@@ -1,0 +1,14 @@
+gow
+
+.env
+.DS_Store
+
+*.db
+
+web/.merlin
+web/.bsb.lock
+web/*.log
+web/*.bs.js
+web/lib/bs
+web/node_modules
+web/dist

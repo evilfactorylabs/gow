@@ -1,0 +1,32 @@
+version: '3'
+
+services:
+  traefik:
+    # <your traefik config here>
+  gow:
+    restart: always
+    image: evilfactorylabs/gow:0.2.0
+    volumes:
+      - ~/data/gow:/app/data # data persistence things
+    labels:
+      - "traefik.port=3030"
+      - "traefik.docker.network=traefik"
+      - "traefik.http.middlewares.auth.basicauth.users=user:$$xx$$xxx$$xxx/" # learn more: https://evlfctry.pro/k0009rlkc
+
+      # protect `/api` endpoint
+      - "traefik.http.routers.gow_api.middlewares=auth"
+      - "traefik.http.routers.gow_api.tls=true"
+      - "traefik.http.routers.gow_api.entrypoints=https"
+      - "traefik.http.routers.gow_api.rule=Host(`insert your domain here`) && Path(`/api/{api}/{scope}`)"
+
+      - "traefik.http.routers.gow.tls=true"
+      - "traefik.http.routers.gow.entrypoints=https"
+      - "traefik.http.routers.gow.rule=Host(`insert your domain here`)"
+    environment:
+      - TOKEN=<insert "secret" token here>
+    networks:
+      - traefik
+
+networks:
+  traefik:
+    driver: overlay
