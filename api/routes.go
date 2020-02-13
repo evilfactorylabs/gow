@@ -13,6 +13,7 @@ func (API *API) MountRouters() {
 	box := packr.NewBox("./../web/dist")
 
 	API.Router.Get("/", http.FileServer(box))
+	API.Router.Get("/healthcheck", http.HandlerFunc(healthCheck))
 
 	// FIXME: lol
 	API.Router.Get("/app.js", ServeFileHandler(&box, "app.js"))

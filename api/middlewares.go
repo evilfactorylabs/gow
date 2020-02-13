@@ -20,6 +20,12 @@ func (API *API) commonRequestHandler(handler requestHandlerFunction) http.Handle
 	}
 }
 
+func healthCheck(w http.ResponseWriter, r *http.Request) {
+	fmt.Fprintf(w, "OK")
+
+	return
+}
+
 // AuthorizationMiddleware —
 func (API *API) AuthorizationMiddleware(handler http.Handler) http.Handler {
 	return http.HandlerFunc(func(w http.ResponseWriter, r *http.Request) {
