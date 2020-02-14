@@ -1,9 +1,14 @@
 package api
 
 import (
+	"context"
 	"database/sql"
 	"log"
 	"net/http"
+	"os"
+	"os/signal"
+	"syscall"
+	"time"
 
 	"github.com/bmizerany/pat"
 	"github.com/evilfactorylabs/gow/config"
@@ -28,6 +33,36 @@ func (API *API) Init(config *config.Config) {
 
 // Run — Run server based on selected port
 func (API *API) Run(host string, port string) {
+	srv := &http.Server{
+		Addr:    port,
+		Handler: API.Router,
+	}
+
+	stop := make(chan os.Signal, 1)
+	signal.Notify(stop, os.Interrupt, syscall.SIGINT, syscall.SIGTERM)
+
+	go func() {
+		if err := srv.ListenAndServe(); err != nil && err != http.ErrServerClosed {
+			log.Fatalf("Server stopped but: %s", err)
+		}
+	}()
+
 	log.Printf("Server run at http://%s%s", host, port)
-	log.Fatal(http.ListenAndServe(port, API.Router))
+
+	<-stop
+
+	log.Printf("Server stopped")
+
+	ctx, cancel := context.WithTimeout(context.Background(), 5*time.Second)
+
+	defer func() {
+		API.DB.Close()
+		cancel()
+	}()
+
+	if err := srv.Shutdown(ctx); err != nil {
+		log.Fatalf("Server shutdown failed: %v", err)
+	}
+
+	log.Printf("Server shutdown properly")
 }
