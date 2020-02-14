@@ -2,6 +2,10 @@
 
 Simple URL shortener with simple analytics.
 
+![Docker Cloud Build Status](https://img.shields.io/docker/cloud/build/evilfactorylabs/gow)
+
+![gow](https://i.imgur.com/cCgbJm2.png)
+
 ## Motivation
 
 This program is powering our internal url shortener (evlfctry.pro) which is to
