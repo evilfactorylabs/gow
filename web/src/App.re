@@ -1,6 +1,7 @@
 [@react.component]
 let make = () => {
   let url = ReasonReactRouter.useUrl();
+  let route = Router.parseUrl(url);
 
   let fragmentContainer =
     ReactDOMRe.Style.make(
@@ -13,12 +14,14 @@ let make = () => {
   <Container>
     <Navbar path={url.hash} />
     <main style=fragmentContainer>
-      {switch (url.hash) {
-       | "" => <Home />
-       | "/" => <Home />
-       | "/new" => <New />
-       | _ => <Stats slug={url.hash} /> // FIXME: lol wtf how to handle url globbing
-       }}
+      {
+        switch (route) {
+        | Home => <Home />
+        | New => <New />
+        | Stats(slug) => <Stats slug />
+        | _ => <Notfound />
+        }
+      }
     </main>
   </Container>;
 };
