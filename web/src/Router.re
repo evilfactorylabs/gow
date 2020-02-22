@@ -13,13 +13,12 @@ let unwrap =
 
 let parseUrl = (url: ReasonReactRouter.url) => {
   switch (url.hash) {
-  | "" => Home 
+  | "" => Home
   | "/" => Home
   | "/new" => New
   | slug => Stats(slug)
-  | _ => Notfound
   };
-}
+};
 
 /*
   use for handle button or ahref click
