@@ -23,6 +23,5 @@ func (API *API) MountRouters() {
 	API.Router.Get("/api/stats/:slug", API.commonRequestHandler(controllers.GetHitsStatsBySlug))
 
 	API.Router.Del("/api/:slug", API.AuthorizationMiddleware(API.commonRequestHandler(controllers.DeleteURL)))
-
-	API.Router.Get("/:slug", API.commonRequestHandler(controllers.GetURL))
+	API.Router.Get("/:slug", API.SendToSlackMiddleware(API.commonRequestHandler(controllers.GetURL)))
 }
