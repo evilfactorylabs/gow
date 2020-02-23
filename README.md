@@ -38,6 +38,7 @@ run `npm run dev` in `web` directory.
 - `GOW_TOKEN` - Used for creating via REST_API, default: (empty)
 - `HOST` - Helpful when you are using reverse proxy, default: `localhost`
 - `PORT` - Helpful in case you don't use container technology, default: `3030`
+- `SLACK_WEBHOOK` - (Optional) Slack Webhook URL to send incoming request to Slack, default: (empty)
 
 For now (v0.2.0), authorization is done in Layer 7 (Load Balancer), but I will fix this.
 
@@ -73,6 +74,7 @@ There are 2 way to run this program in Production
 ## Maintainer(s)
 
 - [Fariz Rizaldy, evilfactorylabs](https://twitter.com/faultable)
+- [Ri7nz, evilfactorylabs](https://twitter.com/ri7nz)
 
 ## License
 
