@@ -1,2 +1,2 @@
 [@react.component]
-let make = () => <div> "Hello :'( where i am ?!?"->React.string </div>;
+let make = () => <h2> "I can't show you anything here."->React.string </h2>;
