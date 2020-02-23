@@ -48,17 +48,18 @@ func (API *API) AuthorizationMiddleware(handler http.Handler) http.Handler {
 	})
 }
 
+// SendToSlackMiddleware —
 func (API *API) SendToSlackMiddleware(handler http.Handler) http.Handler {
 	return http.HandlerFunc(func(w http.ResponseWriter, r *http.Request) {
 		var slackWebhook = os.Getenv("SLACK_WEBHOOK")
+		var path = r.URL.Path
 
-		if slackWebhook != "" {
+		if slackWebhook != "" && path != "/favicon.ico" {
 
 			type slackPayload struct {
 				Text string `json:"text"`
 			}
 
-			path := r.URL.Path
 			ua := r.Header.Get("User-Agent")
 			referer := r.Header.Get("Referer")
 
@@ -78,7 +79,6 @@ func (API *API) SendToSlackMiddleware(handler http.Handler) http.Handler {
 			if err != nil {
 				log.Printf("Error sending to Slack: %s \n", err)
 			}
-
 		}
 
 		handler.ServeHTTP(w, r)
