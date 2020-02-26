@@ -6,18 +6,20 @@ type t =
 
 let unwrap =
   fun
-  | Home => "home"
-  | New => "new"
-  | Stats(_) => "stats"
+  | Home => "/#/"
+  | New => "/#/new"
+  | Stats(slug) => {j|/#/$slug|j}
   | _ => "404";
 
-let parseUrl = (url: ReasonReactRouter.url) =>
-  switch (url.path) {
-  | ["/"] => Home
-  | ["/new"] => New
-  | ["/stats", slug] => Stats(slug)
+let parseUrl = (url: ReasonReactRouter.url) => {
+  switch (url.hash) {
+  | "" => Home 
+  | "/" => Home
+  | "/new" => New
+  | slug => Stats(slug)
   | _ => Notfound
   };
+}
 
 /*
   use for handle button or ahref click

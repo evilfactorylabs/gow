@@ -29,7 +29,7 @@ let make = (~path) => {
   let navTitle = path == "/" || path == "" ? "gow" : "back";
 
   <nav style=navStyle>
-    <Link href="/" style=navBrand> {React.string(navTitle)} </Link>
-    <Link href="/new" style=navAction> {React.string("new link")} </Link>
+    <Link href=Router.Home style=navBrand> {React.string(navTitle)} </Link>
+    <Link href=Router.New style=navAction> {React.string("new link")} </Link>
   </nav>;
 };

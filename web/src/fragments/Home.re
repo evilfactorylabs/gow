@@ -66,7 +66,7 @@ let make = () => {
                 </td>
                 <td> {React.string(parseDate(url.ts))} </td>
                 <td className="_text-align-center">
-                  <Link href={"/" ++ url.slug}>
+                  <Link href={Router.Stats(url.slug)}>
                     {React.string("Stats")}
                   </Link>
                 </td>
