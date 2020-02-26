@@ -19,7 +19,7 @@ let make = () => {
         | Home => <Home />
         | New => <New />
         | Stats(slug) => <Stats slug />
-        | _ => <Notfound />
+        | Notfound => <Notfound />
         }
       }
     </main>
