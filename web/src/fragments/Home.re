@@ -44,7 +44,15 @@ let make = () => {
        <table>
          <tr>
            <th> {React.string("Slug")} </th>
-           <th className="_width-40"> {React.string("Destination")} </th>
+           <th
+             className="_width-40"
+             style={ReactDOMRe.Style.make(
+               ~maxWidth="66.6px",
+               ~overflow="hidden",
+               (),
+             )}>
+             {React.string("Destination")}
+           </th>
            <th> {React.string("Date")} </th>
            <th className="_text-align-center"> {React.string("Action")} </th>
          </tr>
