@@ -1,8 +1,10 @@
 # gow
 
-Simple URL shortener with simple analytics.
+> Simple URL shortener with simple analytics.
 
-![Docker Cloud Build Status](https://img.shields.io/docker/cloud/build/evilfactorylabs/gow)
+<a href="https://hub.docker.com/r/evilfactorylabs/gow/builds">
+  <img src="https://img.shields.io/docker/cloud/build/evilfactorylabs/gow" />
+<a/>
 
 ![gow](https://i.imgur.com/cCgbJm2.png)
 
