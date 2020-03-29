@@ -13,7 +13,7 @@
 This program is powering our internal url shortener (evlfctry.pro) which is to
 track link distribution without tracking any personal data.
 
-## Techonologies
+## Technologies
 
 - Go
 - SQLite
