@@ -1,26 +1,35 @@
 {
   "name": "@evilfactorylabs/gow",
   "private": true,
-  "version": "0.2.0",
+  "version": "0.4.0",
   "license": "MIT",
   "scripts": {
-    "build": "bsb -make-world && webpack",
+    "start": "npm run bs:start",
+    "build": "npm run bs:build && webpack",
     "clean": "bsb -clean-world",
+    "bs:start": "bsb -make-world -w -ws _",
+    "bs:build": "bsb -make-world",
     "dev": "npm-run-all --parallel dev:*",
-    "dev:reason": "bsb -make-world -w",
-    "dev:webpack": "webpack -w"
+    "dev:web": "webpack-dev-server",
+    "dev:bs": "npm run bs:start"
   },
   "dependencies": {
-    "bs-fetch": "^0.5.1",
+    "bs-abstract": "^0.18.0",
+    "bs-fetch": "^0.5.2",
+    "decco": "^1.2.0",
     "react": "^16.8.1",
     "react-dom": "^16.8.1",
-    "reason-react": ">=0.7.0"
+    "reason-react": ">=0.7.0",
+    "relude": "^0.55.0",
+    "relude-fetch": "^0.6.0",
+    "relude-reason-react": "^0.8.2"
   },
   "devDependencies": {
     "bs-platform": "^7.0.1",
     "html-webpack-plugin": "^3.2.0",
     "npm-run-all": "^4.1.5",
     "webpack": "^4.41.5",
-    "webpack-cli": "^3.3.10"
+    "webpack-cli": "^3.3.10",
+    "webpack-dev-server": "^3.10.3"
   }
 }

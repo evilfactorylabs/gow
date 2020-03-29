@@ -1,9 +1,9 @@
-FROM node:alpine as frontendBuilder
+FROM node:10.16.3 as frontendBuilder
 WORKDIR /app
 
 COPY web ./
 
-RUN apk add --update g++ make python
+RUN apt install g++ make python
 RUN npm install
 RUN npm run build
 
