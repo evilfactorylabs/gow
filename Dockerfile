@@ -1,10 +1,14 @@
 FROM node:10.16.3 as frontendBuilder
+
+# RUN apt install g++ make python
+
+ADD web/package.json web/package-lock.json /app/
+
 WORKDIR /app
+RUN npm install
 
 COPY web ./
 
-RUN apt install g++ make python
-RUN npm install
 RUN npm run build
 
 FROM golang:alpine AS apiBuilder
