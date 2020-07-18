@@ -14,14 +14,14 @@ let make = () => {
   <Container>
     <Navbar path={url.hash} />
     <main style=fragmentContainer>
-      {
-        switch (route) {
-        | Home => <Home />
-        | New => <New />
-        | Stats(slug) => <Stats slug />
-        | Notfound => <Notfound />
-        }
-      }
+      {switch (route) {
+       | Home => <Home />
+       | New => <New />
+       | Stats(slug) => <Stats slug />
+       | Notfound => <Notfound />
+       }}
     </main>
   </Container>;
 };
+
+let default = make;
