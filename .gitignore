@@ -4,3 +4,6 @@ gow
 
 *.db
 *.log
+**/*.swp
+**/*.swo
+

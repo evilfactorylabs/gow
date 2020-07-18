@@ -2,13 +2,14 @@ FROM node:10.16.3 as frontendBuilder
 
 # RUN apt install g++ make python
 
-ADD web/package.json web/package-lock.json /app/
+ADD web/bsconfig.json web/package.json web/package-lock.json /app/
 
 WORKDIR /app
 RUN npm install
 
 COPY web ./
 
+RUN mv .env.example .env
 RUN npm run build
 
 FROM golang:alpine AS apiBuilder
