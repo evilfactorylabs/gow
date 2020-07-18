@@ -4,7 +4,7 @@
   "version": "0.4.0",
   "license": "MIT",
   "scripts": {
-    "start": "npm run bs:start",
+    "start": "react-scripts start",
     "build": "npm run bs:build && webpack",
     "clean": "bsb -clean-world",
     "bs:start": "bsb -make-world -w -ws _",
@@ -20,16 +20,13 @@
     "react": "^16.8.1",
     "react-dom": "^16.8.1",
     "reason-react": ">=0.7.0",
+    "react-scripts": "^3.4.1",
     "relude": "^0.55.0",
     "relude-fetch": "^0.6.0",
     "relude-reason-react": "^0.8.2"
   },
   "devDependencies": {
     "bs-platform": "^7.0.1",
-    "html-webpack-plugin": "^3.2.0",
-    "npm-run-all": "^4.1.5",
-    "webpack": "^4.41.5",
-    "webpack-cli": "^3.3.10",
-    "webpack-dev-server": "^3.10.3"
+    "npm-run-all": "^4.1.5"
   }
 }
