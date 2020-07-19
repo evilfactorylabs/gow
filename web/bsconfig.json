@@ -16,9 +16,16 @@
   ],
   "suffix": ".bs.js",
   "namespace": true,
-  "bs-dependencies": ["reason-react", "bs-fetch", "bs-abstract", "decco", "relude", "relude-fetch", "relude-reason-react"],
-  "ppx-flags": [
-    "decco/ppx" 
+  "bs-dependencies": [
+    "reason-react",
+    "bs-fetch",
+    "bs-bastet",
+    "bs-webapi",
+    "decco",
+    "relude",
+    "relude-fetch",
+    "relude-reason-react"
   ],
+  "ppx-flags": ["decco/ppx"],
   "refmt": 3
 }

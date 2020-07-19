@@ -2,23 +2,23 @@ FROM node:10.16.3 as frontendBuilder
 
 # RUN apt install g++ make python
 
-ADD web/package.json web/package-lock.json /app/
+ADD web/bsconfig.json web/package.json web/package-lock.json /app/
 
 WORKDIR /app
 RUN npm install
 
 COPY web ./
-
+COPY web/.env.example ./.env
 RUN npm run build
 
 FROM golang:alpine AS apiBuilder
 WORKDIR /go/src/github.com/evilfactorylabs/gow
 
-RUN apk add --update git gcc musl-dev
+RUN apk add --update git gcc musl-dev --no-cache
 RUN go get -u github.com/gobuffalo/packr/packr
 
 COPY . ./
-COPY --from=frontendBuilder /app/dist ./web/dist
+COPY --from=frontendBuilder /app/build ./web/dist
 
 RUN GOOS=linux GOARCH=amd64 packr build -v -ldflags "-s"
 

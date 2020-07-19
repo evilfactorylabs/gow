@@ -1,35 +1,47 @@
 {
   "name": "@evilfactorylabs/gow",
+  "description": "Simple URL shortener with simple analytics.",
   "private": true,
   "version": "0.4.0",
   "license": "MIT",
   "scripts": {
-    "start": "npm run bs:start",
-    "build": "npm run bs:build && webpack",
-    "clean": "bsb -clean-world",
-    "bs:start": "bsb -make-world -w -ws _",
-    "bs:build": "bsb -make-world",
-    "dev": "npm-run-all --parallel dev:*",
-    "dev:web": "webpack-dev-server",
-    "dev:bs": "npm run bs:start"
+    "start": "run-p --print-name start:*",
+    "start:bsb": "bsb -make-world -w -ws _",
+    "start:web": "react-scripts start",
+    "prebuild": "bsb -clean-world -make-world",
+    "build": "react-scripts build",
+    "clean": "bsb -clean-world"
+  },
+  "eslintConfig": {
+    "extends": "react-app"
+  },
+  "browserslist": {
+    "production": [
+      ">0.2%",
+      "not dead",
+      "not op_mini all"
+    ],
+    "development": [
+      "last 1 chrome version",
+      "last 1 firefox version",
+      "last 1 safari version"
+    ]
   },
   "dependencies": {
-    "bs-abstract": "^0.18.0",
-    "bs-fetch": "^0.5.2",
-    "decco": "^1.2.0",
-    "react": "^16.8.1",
-    "react-dom": "^16.8.1",
-    "reason-react": ">=0.7.0",
-    "relude": "^0.55.0",
-    "relude-fetch": "^0.6.0",
-    "relude-reason-react": "^0.8.2"
+    "bs-bastet": "^1.2.5",
+    "bs-fetch": "^0.6.2",
+    "bs-webapi": "^0.17.1",
+    "decco": "^1.2.1",
+    "react": "^16.13.1",
+    "react-dom": "^16.13.1",
+    "react-scripts": "^3.4.1",
+    "reason-react": ">=0.9.1",
+    "relude": "^0.63.1",
+    "relude-fetch": "^0.8.0",
+    "relude-reason-react": "^0.10.0"
   },
   "devDependencies": {
-    "bs-platform": "^7.0.1",
-    "html-webpack-plugin": "^3.2.0",
-    "npm-run-all": "^4.1.5",
-    "webpack": "^4.41.5",
-    "webpack-cli": "^3.3.10",
-    "webpack-dev-server": "^3.10.3"
+    "bs-platform": "^8.0.3",
+    "npm-run-all": "^4.1.5"
   }
 }

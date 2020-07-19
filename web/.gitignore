@@ -10,3 +10,7 @@ dist
 
 # :))
 *.bs.js
+**/*.swp
+**/*.swo
+
+build/
