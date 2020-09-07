@@ -10,7 +10,7 @@ import (
 // MountRouters —
 func (API *API) MountRouters() {
 
-	box := packr.NewBox("./../web/dist")
+	box := packr.NewBox("./../web/build")
 
 	API.Router.Get("/", http.FileServer(box))
 	API.Router.Get("/healthcheck", http.HandlerFunc(healthCheck))
