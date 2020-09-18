@@ -18,7 +18,7 @@ RUN apk add --update git gcc musl-dev --no-cache
 RUN go get -u github.com/gobuffalo/packr/packr
 
 COPY . ./
-COPY --from=frontendBuilder /app/build ./web/dist
+COPY --from=frontendBuilder /app/build ./web/build
 
 RUN GOOS=linux GOARCH=amd64 packr build -v -ldflags "-s"
 
