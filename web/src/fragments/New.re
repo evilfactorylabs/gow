@@ -14,10 +14,15 @@ let make = () => {
     };
   };
 
-  let clearInput = () => {
+  let clearInput = status => {
     setUrl(_prevState => "");
     setSlug(_prevState => "");
-    setMessage(_prevState => "succesfully saved!");
+
+    if (status >= 400) {
+      setMessage(_prevState => "failed to create url!");
+    } else {
+      setMessage(_prevState => "succesfully saved!");
+    };
 
     Js.Global.setTimeout(() => {setMessage(_prevState => "")}, 3000);
   };
@@ -44,8 +49,7 @@ let make = () => {
             (),
           ),
         )
-        |> then_(Fetch.Response.text)
-        |> then_(_ => clearInput() |> resolve)
+        |> then_(r => clearInput(Fetch.Response.status(r)) |> resolve)
       );
     };
     ();
