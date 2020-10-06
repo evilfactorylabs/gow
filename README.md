@@ -27,12 +27,12 @@ track link distribution without tracking any personal data.
 
 ## Development
 
-Make sure you have Go & SQLite installed (and it's dependencies), if not, you know what's next.
+Make sure you have Go & SQLite installed (and its dependencies), if not, you know what's next.
 
 - Build the application: `make`
 - Run the server: `GOW_TOKEN=<token> ./gow`
 
-If you want to develop the web as well, you need to open new terminal session and
+If you want to develop the web as well, you need to open a new terminal session and
 run `npm run dev` in `web` directory.
 
 ## Environment variables
@@ -46,7 +46,7 @@ For now (v0.2.0), authorization is done in Layer 7 (Load Balancer), but I will f
 
 ## Deployment
 
-There are 2 way to run this program in Production
+There are 2 ways to run this program in Production.
 
 ### Quick way
 
@@ -70,7 +70,7 @@ There are 2 way to run this program in Production
 - [ ] v1.1.0 — show total hits on index & stats page [api, web]
 - [ ] v1.2.0 — functionality to delete existing slug [api]
 - [ ] v1.3.0 — authentication functionality, not rely on token (like now) [api, db]
-- [ ] v1.4.0 — make migration more easier and reliable [db]
+- [ ] v1.4.0 — make migration easier and more reliable [db]
 - [ ] v1.5.0 — fancy chart! [web]
 
 ## Maintainer(s)
