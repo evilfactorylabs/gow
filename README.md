@@ -30,14 +30,14 @@ track link distribution without tracking any personal data.
 Make sure you have Go & SQLite installed (and its dependencies), if not, you know what's next.
 
 - Build the application: `make`
-- Run the server: `GOW_TOKEN=<token> ./gow`
+- Run the server: `TOKEN=<token> ./gow`
 
 If you want to develop the web as well, you need to open a new terminal session and
 run `npm run dev` in `web` directory.
 
 ## Environment variables
 
-- `GOW_TOKEN` - Used for creating via REST_API, default: (empty)
+- `TOKEN` - Used for creating via REST_API, default: (empty)
 - `HOST` - Helpful when you are using reverse proxy, default: `localhost`
 - `PORT` - Helpful in case you don't use container technology, default: `3030`
 - `SLACK_WEBHOOK` - (Optional) Slack Webhook URL to send incoming request to Slack, default: (empty)
@@ -57,7 +57,7 @@ There are 2 ways to run this program in Production.
 
 - Clone repo
 - Build code: `make`
-- Run program: `GOW_TOKEN=<token> ./gow`
+- Run program: `TOKEN=<token> ./gow`
 
 ### As Docker Container
 
