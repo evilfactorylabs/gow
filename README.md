@@ -75,7 +75,7 @@ There are 2 ways to run this program in Production.
 
 ## Maintainer(s)
 
-- [Fariz Rizaldy, evilfactorylabs](https://twitter.com/faultable)
+- [Fariz, evilfactorylabs](mailto:fariz@evilfactory.id)
 - [Ri7nz, evilfactorylabs](https://twitter.com/ri7nz)
 
 ## License
